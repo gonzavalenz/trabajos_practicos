@@ -53,8 +53,7 @@ def cartasIguales(mano, *args):
 
 def manoColor(mano):
     # Si la mano tiene el mismo color 
-    if len(set([carta[0:len(carta):-1] for carta in mano])) == 1:
-        return True
+    return len(set([carta[-1] for carta in mano])) == 1
     
 def reemplazarValores(valores):
     # Reemplazar J, Q, K y A
