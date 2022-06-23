@@ -123,7 +123,7 @@ def pedirPos(maxX,maxY):
 
 if __name__ == '__main__':    
     os.system(limpiar)
-    mapX, mapY, numN, vidas, naufragosSalvados = 8, 8, 8, 10, 0
+    mapX, mapY, numN, vidas, naufragosSalvados = 5, 5, 3, 10, 0
     while True:
         print('NAUFRAGOS GAME\n\n\t1: Jugar!\n\t2: Configurar\n\t3: Salir\n')
         while True:
@@ -150,12 +150,11 @@ if __name__ == '__main__':
                     naufragosSalvados += 1 
                 elif naufragoCerca(mapaNaufragos,pos):
                     reemplazarMapa(mapaMostrar,pos,'*')
-                    contadorVidas -= 1
                 else:
                     contadorVidas -= 1
                 mostrarMapa(mapaMostrar,mapX,contadorVidas,contadorNaufragos,naufragosSalvados)
                 if naufragosSalvados == numN:
-                    print('\n\ncd GANASTE!!! :)\n\n\n')
+                    print('\n\n\nGANASTE!!! :)\n\n\n')
                     break
                 if contadorVidas == 0:
                     print('\n\nPerdiste Perdiste no hay nadie peor que vos!\n\n\n')

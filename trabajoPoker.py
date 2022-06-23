@@ -107,6 +107,7 @@ while True:
         mano = ingresarMano()
     else: break
 
+    print('')
     for carta in mano: print(carta,end='  ')
     print('')
     if manoColor(mano) and escaleraMayor(mano):
