@@ -1,27 +1,22 @@
 '''
 imagen: NNNNNNNNBRAVBRRRRRAAAAAAAVVVVV
-imagen comprimida: (N8)BRAVB(R5)(A7)(V5)
+imagen comprimida: (N8)BRAVBB(R5)(A7)(V5)
 '''
 
 def comprimir_imagen(imagen):
-    contador = 1
     imagen_comprimida = ''
-    for c, i in zip(imagen,range(len(imagen))):
-        if i != 0:
-            if c == imagen[i-1]:
-                contador += 1
-                if i + 1 < len(imagen):
-                    if c != imagen[i+1]:
-                        imagen_comprimida += f'({c}{contador})'
-                        contador = 1
-                else:
-                    imagen_comprimida += f'({c}{contador})'
-            else:
-                if c != imagen[i+1]:
-                    imagen_comprimida += f'{c}'
+    c = 0
+    while c < len(imagen):
+        subcontador = 0
+        caracter = imagen[c]
+        while c < len(imagen) and caracter == imagen[c]:
+            c += 1
+            subcontador += 1
+        if subcontador > 4:
+            imagen_comprimida += f'({caracter}{subcontador})'
         else:
-            if c != imagen[i+1]:
-                imagen_comprimida = f'{c}'
+            imagen_comprimida += caracter * subcontador
+
     return imagen_comprimida
 
 def descomprimir_imagen(imagen):
@@ -41,8 +36,8 @@ def descomprimir_imagen(imagen):
             if i + 1 < len(imagen) and imagen[i+1] not in numeros:
                 imagen_descomprimida += c
             elif i+1 == len(imagen):
-                imagen_descomprimida += c
+                imagen_descomprimida += c 
     return imagen_descomprimida
 
-print(comprimir_imagen('NNNNNNNNBRAVBRRRRRAAAAAAAVVVVV'))
+print(comprimir_imagen('NNNNNNNNBRAAVBRRRRRAAAAAAAVVVVVVVVVVVVVVVVVVVVVVV'))
 print(descomprimir_imagen('(N8)BRAVB(R5)(A20)V'))
